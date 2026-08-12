@@ -1,0 +1,27 @@
+{
+  "name": "3205-ta",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "build": "pnpm --recursive --if-present build",
+    "dev": "pnpm --recursive --parallel --if-present dev",
+    "format": "oxfmt --write .",
+    "lint": "oxlint .",
+    "test": "pnpm --recursive --if-present test",
+    "typecheck": "pnpm --recursive --if-present typecheck"
+  },
+  "devDependencies": {
+    "@types/node": "^24.13.3",
+    "oxfmt": "^0.63.0",
+    "oxlint": "^1.78.0",
+    "typescript": "^6.0.2"
+  },
+  "packageManager": "pnpm@11.21.0",
+  "devEngines": {
+    "packageManager": {
+      "name": "pnpm",
+      "version": "11.21.0",
+      "onFail": "download"
+    }
+  }
+}
