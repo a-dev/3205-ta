@@ -206,10 +206,6 @@ settings:
 importers:
 
   .:
-    dependencies:
-      zustand:
-        specifier: ^5.0.15
-        version: 5.0.15(@types/react@19.2.18)(react@19.2.8)
     devDependencies:
       '@types/node':
         specifier: ^24.13.3
@@ -281,6 +277,9 @@ importers:
       react-dom:
         specifier: ^19.2.8
         version: 19.2.8(react@19.2.8)
+      zustand:
+        specifier: ^5.0.15
+        version: 5.0.15(@types/react@19.2.18)(react@19.2.8)
     devDependencies:
       '@babel/core':
         specifier: ^7.29.7

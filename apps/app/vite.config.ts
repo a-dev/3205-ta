@@ -12,7 +12,12 @@ export default defineConfig({
   server: {
     // Keeps the API same-origin in dev, so no CORS config is needed on the Nest side.
     proxy: {
-      "/api": { target: `http://localhost:${process.env.PORT ?? 3000}`, changeOrigin: true },
+      "/api": {
+        target: process.env.API_PROXY_TARGET ?? `http://localhost:${process.env.PORT ?? 3000}`,
+        changeOrigin: true,
+      },
     },
+    // Bind mounts do not deliver fs events reliably, so the container watches by polling.
+    watch: process.env.VITE_USE_POLLING ? { usePolling: true, interval: 300 } : undefined,
   },
 });

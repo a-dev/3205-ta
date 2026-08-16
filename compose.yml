@@ -1,0 +1,66 @@
+# no Dockerfile, no build, dev only
+
+name: 3205-ta
+
+x-node-env: &node-env
+  COREPACK_ENABLE_DOWNLOAD_PROMPT: "0" # corepack can stop and ask before install the pnpm
+  # watchers
+  CHOKIDAR_USEPOLLING: "true"
+  TSC_WATCHFILE: DynamicPriorityPolling
+  TSC_WATCHDIRECTORY: DynamicPriorityPolling
+
+x-node-volumes: &node-volumes
+  - .:/workspace
+  - root_modules:/workspace/node_modules
+  - api_modules:/workspace/apps/api/node_modules
+  - app_modules:/workspace/apps/app/node_modules
+  - pnpm_store:/root/.local/share/pnpm/store
+
+x-node: &node
+  image: node:24-slim
+  init: true
+  tty: true
+  environment: *node-env
+  volumes: *node-volumes
+
+services:
+  install:
+    <<: *node
+    working_dir: /workspace
+    command: sh -c "corepack enable && pnpm install --frozen-lockfile"
+    restart: "no"
+
+  api:
+    <<: *node
+    working_dir: /workspace/apps/api
+    command: sh -c "corepack enable && pnpm exec nest start --watch"
+    environment:
+      <<: *node-env
+      PORT: "3000"
+    ports:
+      - "3000:3000"
+    depends_on:
+      install:
+        condition: service_completed_successfully
+
+  app:
+    <<: *node
+    working_dir: /workspace/apps/app
+    command: sh -c "corepack enable && pnpm exec vite --host --port 5173"
+    environment:
+      <<: *node-env
+      API_PROXY_TARGET: http://api:3000
+      VITE_USE_POLLING: "true"
+    ports:
+      - "5173:5173"
+    depends_on:
+      install:
+        condition: service_completed_successfully
+      api:
+        condition: service_started
+
+volumes:
+  root_modules:
+  api_modules:
+  app_modules:
+  pnpm_store:

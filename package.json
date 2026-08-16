@@ -3,7 +3,6 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "build": "pnpm --recursive --if-present build",
     "dev": "pnpm --recursive --parallel --if-present dev",
     "format": "oxfmt --write .",
     "lint": "oxlint .",
@@ -23,8 +22,5 @@
       "version": "11.21.0",
       "onFail": "download"
     }
-  },
-  "dependencies": {
-    "zustand": "^5.0.15"
   }
 }
