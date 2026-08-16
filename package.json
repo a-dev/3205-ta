@@ -23,5 +23,8 @@
       "version": "11.21.0",
       "onFail": "download"
     }
+  },
+  "dependencies": {
+    "zustand": "^5.0.15"
   }
 }

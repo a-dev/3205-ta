@@ -1,0 +1,28 @@
+.root {
+}
+
+.error {
+  display: grid;
+  gap: 0.4rem;
+  border: 1px solid red;
+  padding: 0.6rem 0.8rem;
+  background-color: mistyrose;
+}
+
+.retry {
+  border: none;
+  padding: 0.4rem 0.8rem;
+  background-color: deepskyblue;
+  color: white;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 1.4rem;
+}

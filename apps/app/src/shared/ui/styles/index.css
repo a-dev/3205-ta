@@ -1,0 +1,19 @@
+@import url("./reset.css");
+
+html {
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Helvetica,
+    Arial,
+    sans-serif;
+}
+
+body {
+  max-width: 72rem;
+  padding: 1.5rem;
+  margin-inline: auto;
+}

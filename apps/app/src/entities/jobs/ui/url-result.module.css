@@ -1,0 +1,24 @@
+.root {
+  display: grid;
+  padding: 1rem;
+  border: 1px solid lightgray;
+  grid-template-columns: 6rem 1fr;
+  word-break: break-word;
+  gap: 0.4rem;
+  font-size: 1rem;
+}
+
+.root dt {
+  font-weight: 700;
+  color: darkslategray;
+}
+
+.root dd {
+  margin: 0;
+  color: dimgray;
+}
+
+dd.url {
+  font-size: 0.9rem;
+  color: navy;
+}

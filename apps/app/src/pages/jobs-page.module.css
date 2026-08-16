@@ -1,0 +1,23 @@
+.root {
+  display: grid;
+  gap: 3rem;
+}
+
+.jobs {
+  display: grid;
+  gap: 1rem;
+}
+
+.columns {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: start;
+}
+
+.heading {
+  font-size: 2rem;
+  font-weight: 700;
+  color: dimgray;
+  text-align: center;
+}

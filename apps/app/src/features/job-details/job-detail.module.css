@@ -1,0 +1,28 @@
+.root {
+  display: grid;
+  gap: 1rem;
+}
+
+.status {
+  color: dimgray;
+}
+
+.loader {
+  font-size: 0.8rem;
+  color: firebrick;
+}
+
+.results {
+  display: grid;
+  gap: 1.4rem;
+}
+
+.cancel {
+  border: none;
+  padding: 0.4rem 0.8rem;
+  background-color: tomato;
+  color: white;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
