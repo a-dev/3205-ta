@@ -16,5 +16,9 @@
     "source.sortPackageJson": "explicit",
     "source.fixAll.markdownlint": "explicit"
   },
-  "cSpell.words": ["oxfmt", "oxlint"]
+  "cSpell.words": [
+    "oxfmt",
+    "oxlint"
+  ],
+  "bun.test.enable": false
 }
